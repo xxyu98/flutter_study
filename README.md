@@ -1,3 +1,11 @@
+## flutter
+
+### 预览
+
+<img src='assets/readme/profile.png' alt="profile 页面" height='600' />
+
+<img src='assets/readme/home.png' alt="profile 页面" height='600' />
+
 ### 起步
 
 - 安装配置好flutter环境
@@ -42,4 +50,36 @@
       - assets/images/
   ```
 
-- 
+### 配置iconfont图标库
+
+- [iconfont](https://www.iconfont.cn/) 官网建立项目找寻需要图标并下载
+
+- 配置 pubspec.yaml
+
+- ```yaml
+    fonts:
+      - family: IconFont
+        fonts:
+          - asset: assets/iconfont/iconfont.ttf
+  ```
+
+- 创建图标组件 lib/src/common/iconFont.dart
+
+- ```dart
+    static const IconData tdxz = IconData(
+      0xe68c,
+      fontFamily: 'IconFont',
+      matchTextDirection: true,
+    );
+  // tdxz 图标名字 => IconData.tdxz
+  // 0xe68c 下载 iconfont.json 文件对应图标的 unicode => e68c => 0xe68c
+  ```
+
+- ```dart
+  // 使用
+  Icon(
+      IconFont.tdxz,
+      size: 20,
+      color: const Color.fromRGBO(51, 51, 51, 1),
+    ),
+  ```

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nb_app/src/common/components/icon_font.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -104,7 +105,7 @@ class UserInfo extends StatelessWidget {
                   child: const Row(
                     children: [
                       Icon(
-                        Icons.settings,
+                        IconFonts.setting,
                         size: 16,
                         color: Colors.white,
                       ),
