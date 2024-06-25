@@ -1,0 +1,86 @@
+{
+  "id": "4597109",
+  "name": "flutter",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1277687",
+      "name": "wddd",
+      "font_class": "dingdan",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "1766324",
+      "name": "tdxz",
+      "font_class": "tuandui",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
+      "icon_id": "5317496",
+      "name": "bdsb",
+      "font_class": "shebei",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "5747608",
+      "name": "sblb",
+      "font_class": "liebiao",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "8518147",
+      "name": "wlgl",
+      "font_class": "weilan",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "10487457",
+      "name": "lxdt",
+      "font_class": "ditu",
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
+      "icon_id": "12729949",
+      "name": "bzyfk",
+      "font_class": "bangzhu",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "14582929",
+      "name": "lqda",
+      "font_class": "dangan",
+      "unicode": "e777",
+      "unicode_decimal": 59255
+    },
+    {
+      "icon_id": "18164960",
+      "name": "bjsz",
+      "font_class": "alarm",
+      "unicode": "e871",
+      "unicode_decimal": 59505
+    },
+    {
+      "icon_id": "27045131",
+      "name": "gxgl",
+      "font_class": "xinxigongxiangzhongxin",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
+      "icon_id": "28880102",
+      "name": "bjgl",
+      "font_class": "a-mubiaobiaoji",
+      "unicode": "e773",
+      "unicode_decimal": 59251
+    }
+  ]
+}

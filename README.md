@@ -32,3 +32,14 @@
 ### 配置一个tabbar
 
 - 安装一个 [tabbar](https://pub.dev/packages/water_drop_nav_bar) 组件按照例子配置
+
+### 编写 profile 页面
+
+- 使用到本地图片时需要配置 pubspec.yaml
+
+- ```yaml
+    assets:
+      - assets/images/
+  ```
+
+- 
