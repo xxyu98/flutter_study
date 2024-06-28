@@ -7,12 +7,7 @@ class LoadingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('loading')),
-      body: const Center(
-        child: CircularProgressIndicator(
-          color: Colors.purple,
-          semanticsLabel: '加载中...',
-        ),
-      ),
+      body: const Center(child: CircularProgressIndicator()),
     );
   }
 }
