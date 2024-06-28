@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nb_app/src/article/services/article.dart';
+import 'package:nb_app/src/article/controllers/article.dart';
 import 'package:nb_app/src/article/widgets/list_item.dart';
 import 'package:nb_app/src/common/components/error.dart';
 import 'package:nb_app/src/common/components/loading.dart';

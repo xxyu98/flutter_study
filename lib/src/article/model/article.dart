@@ -6,7 +6,7 @@ part 'article.g.dart'; // 自动生成的文件，包含 JSON 序列化/反序�
 @freezed
 class ArticleModel with _$ArticleModel {
   factory ArticleModel({
-    required String articleId,
+    required int articleId,
     required String author,
     required String avatar,
     required String title,

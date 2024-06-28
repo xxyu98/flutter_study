@@ -8,7 +8,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(105, 78, 234, 1),
+          backgroundColor: const Color(0xFF694EEA),
         ),
         body: const Column(
           children: [
@@ -43,10 +43,7 @@ class UserInfo extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [
-                  Color.fromRGBO(105, 78, 234, 1),
-                  Color.fromRGBO(105, 78, 234, .6)
-                ],
+                colors: [Color(0xFF694EEA), Color.fromRGBO(105, 78, 234, .6)],
                 stops: [0.02, 0.90],
               ),
             ),

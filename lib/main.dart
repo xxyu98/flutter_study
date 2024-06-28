@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
 import 'package:nb_app/src/routes.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -30,12 +32,11 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF694EEA)),
+        primaryColor: const Color(0xFF694EEA),
         useMaterial3: true,
       ),
-      initialRoute: '/',
+      initialRoute: '/login',
       getPages: AppRoute.pages,
     );
   }

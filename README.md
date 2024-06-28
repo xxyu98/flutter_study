@@ -37,6 +37,12 @@
   flutter pub add dev:json_serializable
   ```
 
+### 使用model后的运行
+
+- ```shell
+  dart run build_runner build
+  ```
+
 ### 配置一个tabbar
 
 - 安装一个 [tabbar](https://pub.dev/packages/water_drop_nav_bar) 组件按照例子配置

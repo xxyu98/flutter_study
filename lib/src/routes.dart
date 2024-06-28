@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
 import 'package:nb_app/src/article/binding.dart';
 import 'package:nb_app/src/article/page/detail.dart';
+import 'package:nb_app/src/article/page/list.dart';
 import 'package:nb_app/src/layout/layout.dart';
+import 'package:nb_app/src/login/binding.dart';
+import 'package:nb_app/src/login/page/login.dart';
 import 'package:nb_app/src/profile/page/profile.dart';
 
 class AppRoute {
@@ -12,8 +15,17 @@ class AppRoute {
       binding: ArticleListBinding(),
     ),
     GetPage(
+      name: '/login',
+      page: () => const LoginPage(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
       name: '/profile',
       page: () => const ProfilePage(),
+    ),
+    GetPage(
+      name: '/article',
+      page: () => const ArticleListPage(),
     ),
     GetPage(
       name: '/article/:articleId',
