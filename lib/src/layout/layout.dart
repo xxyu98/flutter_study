@@ -34,7 +34,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final Color navigationBarColor = Colors.white;
-  int selectedIndex = 0;
+  int selectedIndex = 2;
   late PageController pageController;
   @override
   void initState() {

@@ -4,6 +4,7 @@ import 'package:nb_app/src/article/controllers/article.dart';
 import 'package:nb_app/src/article/widgets/list_item.dart';
 import 'package:nb_app/src/common/components/error.dart';
 import 'package:nb_app/src/common/components/loading.dart';
+import 'package:nb_app/src/common/components/toast.dart';
 
 class ArticleListPage extends StatelessWidget {
   const ArticleListPage({super.key});
@@ -23,6 +24,16 @@ class ArticleListPage extends StatelessWidget {
                   backgroundColor: const Color(0xfff1f2f3),
                   appBar: AppBar(
                     title: const Text("文章"),
+                  ),
+                  floatingActionButton: FloatingActionButton(
+                    child: const Icon(Icons.add),
+                    onPressed: () {
+                      CustomToast.showToast(
+                        context,
+                        "指令下发失败",
+                        isSuccess: false,
+                      );
+                    },
                   ),
                   body: ListView.builder(
                     itemCount: data.length,
