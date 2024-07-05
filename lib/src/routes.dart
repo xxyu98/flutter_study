@@ -22,7 +22,7 @@ class AppRoute {
     ),
     GetPage(
       name: '/profile',
-      page: () => const ProfilePage(),
+      page: () => ProfilePage(),
     ),
     GetPage(
       name: '/article',

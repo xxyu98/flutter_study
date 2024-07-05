@@ -41,6 +41,7 @@ dependencies:
   water_drop_nav_bar: ^2.2.1
   get_storage: ^2.1.1
   flutter_compass: ^0.8.0
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:

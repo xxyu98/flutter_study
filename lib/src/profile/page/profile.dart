@@ -1,34 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nb_app/src/common/components/icon_font.dart';
+import 'package:nb_app/src/login/controllers/login.dart';
+import 'package:nb_app/src/login/model/user_info.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: const Color(0xFF694EEA),
-        ),
-        body: const Column(
-          children: [
-            UserInfo(
-              userName: '大聪明',
-              userPhone: '16666666666',
-            ),
-            ActionList(),
-          ],
-        ));
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF694EEA),
+      ),
+      body: Column(
+        children: [
+          UserInfo(),
+          const ActionList(),
+        ],
+      ),
+    );
   }
 }
 
 class UserInfo extends StatelessWidget {
-  final String userName;
-  final String userPhone;
-  const UserInfo({super.key, required this.userName, required this.userPhone});
-
+  UserInfo({super.key});
+  final userController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
+    final userInfo = userController.userInfo.value as UserInfoModel;
     return Stack(
       children: [
         Container(
@@ -59,7 +58,8 @@ class UserInfo extends StatelessWidget {
                         border: Border.all(color: Colors.white, width: 2),
                         borderRadius: BorderRadius.circular(38),
                         image: const DecorationImage(
-                          image: AssetImage('assets/images/def_avatar.png'),
+                          image: NetworkImage(
+                              'https://weilianbao.oss-cn-hangzhou.aliyuncs.com/image/default-avatar.png'),
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -70,7 +70,7 @@ class UserInfo extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          userName,
+                          userInfo.username,
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -79,7 +79,7 @@ class UserInfo extends StatelessWidget {
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          userPhone,
+                          userInfo.phone ?? '',
                           style: const TextStyle(
                             color: Colors.white,
                           ),

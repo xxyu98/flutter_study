@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:nb_app/src/config.dart';
-import 'package:nb_app/src/login/model/login.dart';
+import 'package:nb_app/src/login/model/user_info.dart';
 
 class LoginRepository extends GetConnect {
   static LoginRepository get to => Get.find();
@@ -11,20 +11,20 @@ class LoginRepository extends GetConnect {
     super.onInit();
   }
 
-  // 这里不对还不会写但能跑
-  Future<LoginModel> userLogin(String username, String password) async {
+  Future<UserInfoModel> userLogin(String username, String password) async {
     const url = '/api/login';
 
-    final response =
-        await post(url, {'username': username, 'password': password});
-    if (response.body['success']) {
-      return LoginModel.fromJson(response.body);
+    final params = {
+      'username': username,
+      'password': password,
+    };
+
+    final response = await post(url, params);
+
+    if (response.body['success'] == true) {
+      return UserInfoModel.fromJson(response.body['data']);
     } else {
-      if (response.body['message']) {
-        throw ('${response.body['message']}');
-      } else {
-        throw ('登录失败');
-      }
+      throw Exception(response.body['message']);
     }
   }
 }

@@ -53,7 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
-          children: const [ArticleListPage(), CompassPage(), ProfilePage()],
+          children: [
+            const ArticleListPage(),
+            const CompassPage(),
+            ProfilePage()
+          ],
         ),
         bottomNavigationBar: WaterDropNavBar(
           backgroundColor: navigationBarColor,

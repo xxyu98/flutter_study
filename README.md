@@ -89,3 +89,16 @@
       color: const Color.fromRGBO(51, 51, 51, 1),
     ),
   ```
+
+### 一些东西
+
+- 遇到一些看着很对的东西但报错 Invalid constant value. 时可能是组件内的值是一个动态的值 不能在使用 const .... 移除 widget 前面的 const 再试试
+
+- ```dart
+  final error = Rxn<String>();
+  // Rxn<T> GetX工具，处理初始值可能为 null 的响应式数据
+  // 页面中可使用 Obx 监听 Rxn<T> 变化
+  ```
+
+- 
+

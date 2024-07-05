@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:nb_app/src/login/api/login.dart';
-import 'package:nb_app/src/login/model/login.dart';
+import 'package:nb_app/src/login/model/user_info.dart';
 
 class LoginController extends GetxController {
   final username = 'xxy'.obs;
@@ -30,7 +30,7 @@ class LoginController extends GetxController {
 
   final repo = Get.find<LoginRepository>();
 
-  final userInfo = Rxn<LoginModel>();
+  final userInfo = Rxn<UserInfoModel>();
 
   void setError(String? detail) {
     error.value = detail;
@@ -43,7 +43,7 @@ class LoginController extends GetxController {
       isLoading(true);
       error.value = null;
       userInfo.value = await repo.userLogin(username.value, password.value);
-      box.write('token', userInfo.value!.token);
+      box.write('userInfo', userInfo.value);
       Get.snackbar('welcome', '登录成功');
     } catch (e) {
       final detail = '发生错误 $e';
