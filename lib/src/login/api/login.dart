@@ -2,8 +2,8 @@ import 'package:get/get.dart';
 import 'package:nb_app/src/config.dart';
 import 'package:nb_app/src/login/model/user_info.dart';
 
-class LoginRepository extends GetConnect {
-  static LoginRepository get to => Get.find();
+class UserInfoRepository extends GetConnect {
+  static UserInfoRepository get to => Get.find();
 
   @override
   void onInit() {
@@ -12,7 +12,7 @@ class LoginRepository extends GetConnect {
   }
 
   Future<UserInfoModel> userLogin(String username, String password) async {
-    const url = '/api/login';
+    String url = '/api/login';
 
     final params = {
       'username': username,

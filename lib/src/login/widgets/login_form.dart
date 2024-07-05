@@ -7,7 +7,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController());
+    final controller = Get.put(UserInfoController());
     final formKey = GlobalKey<FormState>();
 
     return Obx(
@@ -19,7 +19,7 @@ class LoginForm extends StatelessWidget {
             child: Column(
               children: [
                 TextFormField(
-                  autofocus: true,
+                  // autofocus: true,
                   decoration: const InputDecoration(
                     hintText: "请输入账号",
                     border: OutlineInputBorder(),

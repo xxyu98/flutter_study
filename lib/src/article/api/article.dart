@@ -18,7 +18,7 @@ class ArticleRepository extends GetConnect {
   Future<List<ArticleModel>> getArticleList() async {
     const url = '/my/article/cates';
 
-    UserInfoModel userInfo = box.read('userInfo');
+    final userInfo = UserInfoModel.fromJson(box.read('userInfo'));
 
     final response = await get(url, headers: {'Authorization': userInfo.token});
 

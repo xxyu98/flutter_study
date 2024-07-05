@@ -1,20 +1,155 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:nb_app/src/common/components/icon_font.dart';
-import 'package:nb_app/src/login/controllers/login.dart';
 import 'package:nb_app/src/login/model/user_info.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
   @override
   Widget build(BuildContext context) {
+    final box = GetStorage();
+
+    readUserInfo() {
+      try {
+        return UserInfoModel.fromJson(box.read('userInfo'));
+      } catch (e) {
+        return null;
+      }
+    }
+
+    final userInfo = readUserInfo();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF694EEA),
       ),
       body: Column(
         children: [
-          UserInfo(),
+          Stack(
+            children: [
+              Container(
+                alignment: Alignment.topCenter,
+                width: double.infinity,
+                height: 210,
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                  width: double.infinity,
+                  height: 170,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0xFF694EEA),
+                        Color.fromRGBO(105, 78, 234, .6)
+                      ],
+                      stops: [0.02, 0.90],
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 2),
+                              borderRadius: BorderRadius.circular(38),
+                              image: const DecorationImage(
+                                image: NetworkImage(
+                                    'https://weilianbao.oss-cn-hangzhou.aliyuncs.com/image/default-avatar.png'),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 20),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                userInfo!.username,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                userInfo.phone ?? '',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 4, horizontal: 8),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 2,
+                          ),
+                          color: const Color.fromRGBO(255, 255, 255, .1),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Row(
+                          children: [
+                            Icon(
+                              IconFonts.setting,
+                              size: 16,
+                              color: Colors.white,
+                            ),
+                            SizedBox(width: 4),
+                            Text(
+                              '设置',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned.fill(
+                top: 130,
+                child: Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.symmetric(horizontal: 16),
+                  height: 80,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Color.fromRGBO(110, 77, 243, 0.10),
+                          offset: Offset(0, 2),
+                          blurRadius: 6,
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _buildIconTextItem(Icons.list_alt, '海量课程'),
+                        _buildIconTextItem(Icons.add_reaction_outlined, '丰富活动'),
+                        _buildIconTextItem(Icons.chat_outlined, '专属微信群'),
+                        _buildIconTextItem(Icons.update, '每日更新'),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           const ActionList(),
         ],
       ),
@@ -23,155 +158,35 @@ class ProfilePage extends StatelessWidget {
 }
 
 class UserInfo extends StatelessWidget {
-  UserInfo({super.key});
-  final userController = Get.put(LoginController());
+  final String userName;
+  final String userPhone;
+  const UserInfo({super.key, required this.userName, required this.userPhone});
+
   @override
   Widget build(BuildContext context) {
-    final userInfo = userController.userInfo.value as UserInfoModel;
-    return Stack(
-      children: [
-        Container(
-          alignment: Alignment.topCenter,
-          width: double.infinity,
-          height: 210,
-          child: Container(
-            padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-            width: double.infinity,
-            height: 170,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Color(0xFF694EEA), Color.fromRGBO(105, 78, 234, .6)],
-                stops: [0.02, 0.90],
-              ),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 2),
-                        borderRadius: BorderRadius.circular(38),
-                        image: const DecorationImage(
-                          image: NetworkImage(
-                              'https://weilianbao.oss-cn-hangzhou.aliyuncs.com/image/default-avatar.png'),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          userInfo.username,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          userInfo.phone ?? '',
-                          style: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 2,
-                    ),
-                    color: const Color.fromRGBO(255, 255, 255, .1),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Row(
-                    children: [
-                      Icon(
-                        IconFonts.setting,
-                        size: 16,
-                        color: Colors.white,
-                      ),
-                      SizedBox(width: 4),
-                      Text(
-                        '设置',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        Positioned.fill(
-          top: 130,
-          child: Container(
-            width: double.infinity,
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-            height: 80,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color.fromRGBO(110, 77, 243, 0.10),
-                    offset: Offset(0, 2),
-                    blurRadius: 6,
-                  ),
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _buildIconTextItem(Icons.list_alt, '海量课程'),
-                  _buildIconTextItem(Icons.add_reaction_outlined, '丰富活动'),
-                  _buildIconTextItem(Icons.chat_outlined, '专属微信群'),
-                  _buildIconTextItem(Icons.update, '每日更新'),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
+    return const Text('data');
   }
+}
 
-  Widget _buildIconTextItem(IconData icon, String text) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(
-          icon,
-          size: 24,
-          color: const Color.fromRGBO(51, 51, 51, 1),
+Widget _buildIconTextItem(IconData icon, String text) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Icon(
+        icon,
+        size: 24,
+        color: const Color.fromRGBO(51, 51, 51, 1),
+      ),
+      const SizedBox(height: 8),
+      Text(
+        text,
+        style: const TextStyle(
+          fontSize: 14,
+          color: Color.fromRGBO(51, 51, 51, 1),
         ),
-        const SizedBox(height: 8),
-        Text(
-          text,
-          style: const TextStyle(
-            fontSize: 14,
-            color: Color.fromRGBO(51, 51, 51, 1),
-          ),
-        ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
 }
 
 class ActionList extends StatelessWidget {

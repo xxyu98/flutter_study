@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nb_app/src/routes.dart';
+import 'package:nb_app/src/routes/routes.dart';
 import 'package:get_storage/get_storage.dart';
 
 void main() async {
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF694EEA),
         useMaterial3: true,
       ),
-      initialRoute: '/login',
+      initialRoute: '/',
       getPages: AppRoute.pages,
     );
   }
