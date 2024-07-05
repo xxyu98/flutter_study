@@ -9,15 +9,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final box = GetStorage();
 
-    readUserInfo() {
-      try {
-        return UserInfoModel.fromJson(box.read('userInfo'));
-      } catch (e) {
-        return null;
-      }
-    }
-
-    final userInfo = readUserInfo();
+    final userInfo = UserInfoModel.fromJson(box.read('userInfo'));
 
     return Scaffold(
       appBar: AppBar(
@@ -70,7 +62,9 @@ class ProfilePage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                userInfo!.username,
+                                userInfo.nickname?.isNotEmpty == true
+                                    ? userInfo.nickname!
+                                    : userInfo.username,
                                 style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
