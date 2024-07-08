@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:nb_app/src/common/components/icon_font.dart';
 import 'package:nb_app/src/login/model/user_info.dart';
@@ -12,9 +13,7 @@ class ProfilePage extends StatelessWidget {
     final userInfo = UserInfoModel.fromJson(box.read('userInfo'));
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF694EEA),
-      ),
+      backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
       body: Column(
         children: [
           Stack(
@@ -22,20 +21,16 @@ class ProfilePage extends StatelessWidget {
               Container(
                 alignment: Alignment.topCenter,
                 width: double.infinity,
-                height: 210,
+                height: 275,
                 child: Container(
-                  padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+                  padding: const EdgeInsets.fromLTRB(24, 40, 24, 0),
                   width: double.infinity,
-                  height: 170,
+                  height: 232,
                   decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFF694EEA),
-                        Color.fromRGBO(105, 78, 234, .6)
-                      ],
-                      stops: [0.02, 0.90],
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://houndpos.oss-cn-hangzhou.aliyuncs.com/profile/banner.png'),
+                      fit: BoxFit.fill,
                     ),
                   ),
                   child: Row(
@@ -51,12 +46,12 @@ class ProfilePage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(38),
                               image: const DecorationImage(
                                 image: NetworkImage(
-                                    'https://weilianbao.oss-cn-hangzhou.aliyuncs.com/image/default-avatar.png'),
+                                    'https://houndpos.oss-cn-hangzhou.aliyuncs.com/profile/def_avatar.png'),
                                 fit: BoxFit.fill,
                               ),
                             ),
                           ),
-                          const SizedBox(width: 20),
+                          const SizedBox(width: 12),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -88,24 +83,29 @@ class ProfilePage extends StatelessWidget {
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: Colors.white,
-                            width: 2,
+                            width: 1,
                           ),
                           color: const Color.fromRGBO(255, 255, 255, .1),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: const Row(
-                          children: [
-                            Icon(
-                              IconFonts.setting,
-                              size: 16,
-                              color: Colors.white,
-                            ),
-                            SizedBox(width: 4),
-                            Text(
-                              '设置',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.toNamed('/profile/setting');
+                          },
+                          child: const Row(
+                            children: [
+                              Icon(
+                                IconFonts.setting,
+                                size: 16,
+                                color: Colors.white,
+                              ),
+                              SizedBox(width: 4),
+                              Text(
+                                '设置',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -113,30 +113,30 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               Positioned.fill(
-                top: 130,
+                top: 190,
                 child: Container(
                   width: double.infinity,
                   margin: const EdgeInsets.symmetric(horizontal: 16),
-                  height: 80,
+                  // height: 80,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8),
                       boxShadow: const [
                         BoxShadow(
-                          color: Color.fromRGBO(110, 77, 243, 0.10),
+                          color: Color.fromRGBO(110, 77, 243, .1),
                           offset: Offset(0, 2),
-                          blurRadius: 6,
+                          blurRadius: 8,
                         ),
                       ],
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        _buildIconTextItem(Icons.list_alt, '海量课程'),
-                        _buildIconTextItem(Icons.add_reaction_outlined, '丰富活动'),
-                        _buildIconTextItem(Icons.chat_outlined, '专属微信群'),
-                        _buildIconTextItem(Icons.update, '每日更新'),
+                        _buildIconTextItem(IconFonts.offlineMap, '离线地图'),
+                        _buildIconTextItem(IconFonts.bindDevice, '绑定设备'),
+                        _buildIconTextItem(IconFonts.fenceManage, '围栏管理'),
+                        _buildIconTextItem(IconFonts.houndFiles, '猎犬档案'),
                       ],
                     ),
                   ),
@@ -203,11 +203,13 @@ class ActionList extends StatelessWidget {
       margin: const EdgeInsets.all(16),
       child: Column(
         children: [
-          _buildActionItem(Icons.computer_sharp, '学习数据'),
-          _buildActionItem(Icons.text_decrease_sharp, '等级测试'),
-          _buildActionItem(Icons.task_alt, '我的任务'),
-          _buildActionItem(Icons.check_box_outlined, '组队打卡'),
-          _buildActionItem(Icons.upgrade, '学习提升'),
+          _buildActionItem(IconFonts.devicesList, '设备列表'),
+          _buildActionItem(IconFonts.myOrder, '我的订单'),
+          _buildActionItem(IconFonts.teamwork, '团队协作'),
+          _buildActionItem(IconFonts.alarmSettings, '报警设置'),
+          _buildActionItem(IconFonts.shareManage, '共享管理'),
+          _buildActionItem(IconFonts.tagManage, '标记管理'),
+          _buildActionItem(IconFonts.helpAndFeedback, '帮助与反馈'),
         ],
       ),
     );

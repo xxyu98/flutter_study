@@ -6,6 +6,7 @@ import 'package:nb_app/src/layout/layout.dart';
 import 'package:nb_app/src/login/binding.dart';
 import 'package:nb_app/src/login/page/login.dart';
 import 'package:nb_app/src/profile/page/profile.dart';
+import 'package:nb_app/src/profile/page/setting.dart';
 import 'package:nb_app/src/routes/middleware/auth.dart';
 
 class AppRoute {
@@ -22,10 +23,15 @@ class AppRoute {
       binding: UserInfoBinding(),
     ),
     GetPage(
-      name: '/profile',
-      page: () => const ProfilePage(),
-      binding: UserInfoBinding(),
-    ),
+        name: '/profile',
+        page: () => const ProfilePage(),
+        binding: UserInfoBinding(),
+        children: [
+          GetPage(
+            name: '/setting',
+            page: () => SettingPage(),
+          ),
+        ]),
     GetPage(
       name: '/article',
       page: () => const ArticleListPage(),

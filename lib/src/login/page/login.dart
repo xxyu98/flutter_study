@@ -41,43 +41,43 @@ class LoginPage extends StatelessWidget {
                         child: Row(
                           children: [
                             Container(
-                                width: 136,
-                                height: 46,
-                                decoration: const BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        'assets/images/login_type.png'),
-                                    fit: BoxFit.cover,
-                                  ),
+                              width: 136,
+                              height: 46,
+                              decoration: const BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/login_type.png'),
+                                  fit: BoxFit.cover,
                                 ),
-                                child: Stack(
-                                  children: [
-                                    const Center(
-                                      child: Text(
-                                        '密码登录',
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                          color: Color.fromRGBO(51, 51, 51, 1),
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                              ),
+                              child: Stack(
+                                children: [
+                                  const Center(
+                                    child: Text(
+                                      '密码登录',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color.fromRGBO(51, 51, 51, 1),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
-                                    Positioned(
-                                      top: 38,
-                                      left: 56,
-                                      child: Container(
-                                        margin: const EdgeInsets.only(top: 4),
-                                        width: 24,
-                                        height: 4,
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFF694EEA),
-                                          borderRadius:
-                                              BorderRadius.circular(2),
-                                        ),
+                                  ),
+                                  Positioned(
+                                    top: 38,
+                                    left: 56,
+                                    child: Container(
+                                      margin: const EdgeInsets.only(top: 4),
+                                      width: 24,
+                                      height: 4,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFF694EEA),
+                                        borderRadius: BorderRadius.circular(2),
                                       ),
-                                    )
-                                  ],
-                                ))
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
                           ],
                         ),
                       ),

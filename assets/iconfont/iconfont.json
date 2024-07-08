@@ -1,16 +1,93 @@
 {
-  "id": "4597109",
-  "name": "flutter",
+  "id": "4612967",
+  "name": "探察者APP",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
     {
-      "icon_id": "747121",
-      "name": "setting",
-      "font_class": "setting",
-      "unicode": "e614",
-      "unicode_decimal": 58900
+      "icon_id": "40989467",
+      "name": "设备列表",
+      "font_class": "shebeiliebiao",
+      "unicode": "e724",
+      "unicode_decimal": 59172
+    },
+    {
+      "icon_id": "40989114",
+      "name": "报警设置",
+      "font_class": "baojingshezhi",
+      "unicode": "e722",
+      "unicode_decimal": 59170
+    },
+    {
+      "icon_id": "40989113",
+      "name": "标记管理",
+      "font_class": "biaojiguanli",
+      "unicode": "e723",
+      "unicode_decimal": 59171
+    },
+    {
+      "icon_id": "40989111",
+      "name": "帮助",
+      "font_class": "bangzu",
+      "unicode": "e725",
+      "unicode_decimal": 59173
+    },
+    {
+      "icon_id": "40989110",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e726",
+      "unicode_decimal": 59174
+    },
+    {
+      "icon_id": "40989122",
+      "name": "离线地图",
+      "font_class": "lixianditu",
+      "unicode": "e71d",
+      "unicode_decimal": 59165
+    },
+    {
+      "icon_id": "40989121",
+      "name": "绑定设备",
+      "font_class": "bangdingshebei",
+      "unicode": "e71c",
+      "unicode_decimal": 59164
+    },
+    {
+      "icon_id": "40989120",
+      "name": "围栏管理",
+      "font_class": "weilanguanli",
+      "unicode": "e71e",
+      "unicode_decimal": 59166
+    },
+    {
+      "icon_id": "40989119",
+      "name": "猎犬档案",
+      "font_class": "liequandangan",
+      "unicode": "e71f",
+      "unicode_decimal": 59167
+    },
+    {
+      "icon_id": "40989117",
+      "name": "共享",
+      "font_class": "gongxiang",
+      "unicode": "e71b",
+      "unicode_decimal": 59163
+    },
+    {
+      "icon_id": "40989116",
+      "name": "团队协作",
+      "font_class": "tuanduixiezuo",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    },
+    {
+      "icon_id": "40989115",
+      "name": "我的订单",
+      "font_class": "wodedingdan",
+      "unicode": "e721",
+      "unicode_decimal": 59169
     }
   ]
 }

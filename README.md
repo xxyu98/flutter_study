@@ -100,5 +100,11 @@
   // 页面中可使用 Obx 监听 Rxn<T> 变化
   ```
 
-- 
+- ```
+  xcodebuild: error: Unable to find a destination matching the provided destination specifier:
+  ```
+
+- Xcode => Runner => Build Setting => supported platforms
+
+- 选择 IOS
 

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:nb_app/src/config.dart';
 import 'package:nb_app/src/login/model/user_info.dart';
@@ -20,6 +21,8 @@ class UserInfoRepository extends GetConnect {
     };
 
     final response = await post(url, params);
+
+    debugPrint(response.bodyString);
 
     if (response.body['success'] == true) {
       return UserInfoModel.fromJson(response.body['data']);
