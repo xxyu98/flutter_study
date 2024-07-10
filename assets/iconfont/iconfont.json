@@ -1,45 +1,10 @@
 {
-  "id": "4612967",
-  "name": "探察者APP",
+  "id": "4597109",
+  "name": "flutter",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
-    {
-      "icon_id": "40989467",
-      "name": "设备列表",
-      "font_class": "shebeiliebiao",
-      "unicode": "e724",
-      "unicode_decimal": 59172
-    },
-    {
-      "icon_id": "40989114",
-      "name": "报警设置",
-      "font_class": "baojingshezhi",
-      "unicode": "e722",
-      "unicode_decimal": 59170
-    },
-    {
-      "icon_id": "40989113",
-      "name": "标记管理",
-      "font_class": "biaojiguanli",
-      "unicode": "e723",
-      "unicode_decimal": 59171
-    },
-    {
-      "icon_id": "40989111",
-      "name": "帮助",
-      "font_class": "bangzu",
-      "unicode": "e725",
-      "unicode_decimal": 59173
-    },
-    {
-      "icon_id": "40989110",
-      "name": "设置",
-      "font_class": "shezhi",
-      "unicode": "e726",
-      "unicode_decimal": 59174
-    },
     {
       "icon_id": "40989122",
       "name": "离线地图",
@@ -88,6 +53,41 @@
       "font_class": "wodedingdan",
       "unicode": "e721",
       "unicode_decimal": 59169
+    },
+    {
+      "icon_id": "40989114",
+      "name": "报警设置",
+      "font_class": "baojingshezhi",
+      "unicode": "e722",
+      "unicode_decimal": 59170
+    },
+    {
+      "icon_id": "40989113",
+      "name": "标记管理",
+      "font_class": "biaojiguanli",
+      "unicode": "e723",
+      "unicode_decimal": 59171
+    },
+    {
+      "icon_id": "40989111",
+      "name": "帮助",
+      "font_class": "bangzu",
+      "unicode": "e725",
+      "unicode_decimal": 59173
+    },
+    {
+      "icon_id": "40989110",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e726",
+      "unicode_decimal": 59174
+    },
+    {
+      "icon_id": "40989467",
+      "name": "设备列表",
+      "font_class": "shebeiliebiao",
+      "unicode": "e724",
+      "unicode_decimal": 59172
     }
   ]
 }
