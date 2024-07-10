@@ -24,7 +24,7 @@ class AppRoute {
     ),
     GetPage(
         name: '/profile',
-        page: () => const ProfilePage(),
+        page: () => ProfilePage(),
         binding: UserInfoBinding(),
         children: [
           GetPage(

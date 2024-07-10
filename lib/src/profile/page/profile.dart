@@ -1,11 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:nb_app/src/common/components/cell_group.dart';
 import 'package:nb_app/src/common/components/icon_font.dart';
 import 'package:nb_app/src/login/model/user_info.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  ProfilePage({super.key});
+
+  final actionList = [
+    {
+      'prefix': IconFonts.devicesList,
+      'title': '设备列表',
+    },
+    {
+      'prefix': IconFonts.myOrder,
+      'title': '我的订单',
+    },
+    {
+      'prefix': IconFonts.teamwork,
+      'title': '团队协作',
+    },
+    {
+      'prefix': IconFonts.alarmSettings,
+      'title': '报警设置',
+    },
+    {
+      'prefix': IconFonts.shareManage,
+      'title': '共享管理',
+    },
+    {
+      'prefix': IconFonts.tagManage,
+      'title': '标记管理',
+    },
+    {
+      'prefix': IconFonts.helpAndFeedback,
+      'title': '帮助与反馈',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     final box = GetStorage();
@@ -144,7 +177,7 @@ class ProfilePage extends StatelessWidget {
               ),
             ],
           ),
-          const ActionList(),
+          CellGroup(cellsData: actionList),
         ],
       ),
     );
@@ -181,66 +214,4 @@ Widget _buildIconTextItem(IconData icon, String text) {
       ),
     ],
   );
-}
-
-class ActionList extends StatelessWidget {
-  const ActionList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        boxShadow: const [
-          BoxShadow(
-            color: Color.fromRGBO(110, 77, 243, 0.10),
-            offset: Offset(0, 2),
-            blurRadius: 6,
-          ),
-        ],
-      ),
-      margin: const EdgeInsets.all(16),
-      child: Column(
-        children: [
-          _buildActionItem(IconFonts.devicesList, '设备列表'),
-          _buildActionItem(IconFonts.myOrder, '我的订单'),
-          _buildActionItem(IconFonts.teamwork, '团队协作'),
-          _buildActionItem(IconFonts.alarmSettings, '报警设置'),
-          _buildActionItem(IconFonts.shareManage, '共享管理'),
-          _buildActionItem(IconFonts.tagManage, '标记管理'),
-          _buildActionItem(IconFonts.helpAndFeedback, '帮助与反馈'),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildActionItem(IconData icon, String text) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
-      height: 56,
-      child: Row(
-        children: [
-          Icon(
-            icon,
-            size: 20,
-            color: const Color.fromRGBO(51, 51, 51, 1),
-          ),
-          const SizedBox(width: 6),
-          Text(
-            text,
-            style: const TextStyle(
-              fontSize: 15,
-              color: Color.fromRGBO(51, 51, 51, 1),
-            ),
-          ),
-          const Spacer(),
-          const Icon(
-            Icons.navigate_next,
-            color: Color.fromRGBO(103, 103, 103, 1),
-          ),
-        ],
-      ),
-    );
-  }
 }
