@@ -5,7 +5,7 @@ import 'package:nb_app/src/compass/page/compass.dart';
 import 'package:nb_app/src/profile/page/profile.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
-void main() {
+void main() async {
   runApp(const HomePage());
 }
 
@@ -14,14 +14,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-      ),
-      home: const MyHomePage(),
-    );
+    return const MyHomePage();
   }
 }
 

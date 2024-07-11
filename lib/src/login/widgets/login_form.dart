@@ -7,7 +7,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(UserInfoController());
+    final controller = Get.find<UserInfoController>();
     final formKey = GlobalKey<FormState>();
 
     return Obx(
@@ -19,21 +19,7 @@ class LoginForm extends StatelessWidget {
             child: Column(
               children: [
                 TextFormField(
-                  // autofocus: true,
-                  decoration: const InputDecoration(
-                    hintText: "请输入账号",
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color.fromRGBO(234, 234, 234, 1),
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFF694EEA),
-                      ),
-                    ),
-                  ),
+                  autofocus: true,
                   initialValue: controller.username.value,
                   validator: (v) {
                     return v!.trim().isNotEmpty ? null : "账号不能为空";
@@ -44,20 +30,6 @@ class LoginForm extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: "请输入密码",
-                    border: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color.fromRGBO(234, 234, 234, 1),
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Color(0xFF694EEA),
-                      ),
-                    ),
-                  ),
                   initialValue: controller.password.value,
                   validator: (v) {
                     return v!.trim().length > 4 ? null : "密码不能少于4位";

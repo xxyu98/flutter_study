@@ -28,7 +28,7 @@ class CellGroup extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
       ),
-      margin: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(vertical: 16),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(8),
         child: Column(
@@ -62,7 +62,6 @@ class CellGroup extends StatelessWidget {
                 Icon(
                   cell.prefix,
                   size: 20,
-                  color: const Color.fromRGBO(51, 51, 51, 1),
                 ),
               const SizedBox(width: 6),
               Expanded(
@@ -70,7 +69,6 @@ class CellGroup extends StatelessWidget {
                   cell.title,
                   style: const TextStyle(
                     fontSize: 15,
-                    color: Color.fromRGBO(51, 51, 51, 1),
                   ),
                 ),
               ),

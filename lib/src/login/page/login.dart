@@ -57,7 +57,6 @@ class LoginPage extends StatelessWidget {
                                       '密码登录',
                                       style: TextStyle(
                                         fontSize: 16,
-                                        color: Color.fromRGBO(51, 51, 51, 1),
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),

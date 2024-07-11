@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:nb_app/src/common/components/cell_group.dart';
 import 'package:nb_app/src/common/components/icon_font.dart';
-import 'package:nb_app/src/login/model/user_info.dart';
+import 'package:nb_app/src/login/controllers/login.dart';
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
@@ -41,12 +40,9 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final box = GetStorage();
-
-    final userInfo = UserInfoModel.fromJson(box.read('userInfo'));
+    final userController = Get.find<UserInfoController>();
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
       body: Column(
         children: [
           Stack(
@@ -69,46 +65,54 @@ class ProfilePage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: [
-                          Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 2),
-                              borderRadius: BorderRadius.circular(38),
-                              image: const DecorationImage(
-                                image: NetworkImage(
-                                    'https://houndpos.oss-cn-hangzhou.aliyuncs.com/profile/def_avatar.png'),
-                                fit: BoxFit.fill,
+                      Obx(
+                        () => Row(
+                          children: [
+                            Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.white, width: 2),
+                                borderRadius: BorderRadius.circular(30),
+                                image: DecorationImage(
+                                  image: NetworkImage(userController.userInfo
+                                              .value!.avatar?.isNotEmpty ==
+                                          true
+                                      ? userController.userInfo.value!.avatar!
+                                      : 'https://houndpos.oss-cn-hangzhou.aliyuncs.com/profile/def_avatar.png'),
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(width: 12),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                userInfo.nickname?.isNotEmpty == true
-                                    ? userInfo.nickname!
-                                    : userInfo.username,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                            const SizedBox(width: 12),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  userController.userInfo.value!.nickname
+                                              ?.isNotEmpty ==
+                                          true
+                                      ? userController.userInfo.value!.nickname!
+                                      : userController.userInfo.value!.username,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 5),
-                              Text(
-                                userInfo.phone ?? '',
-                                style: const TextStyle(
-                                  color: Colors.white,
+                                const SizedBox(height: 5),
+                                Text(
+                                  userController.userInfo.value?.phone ?? '',
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          )
-                        ],
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         padding: const EdgeInsets.symmetric(
@@ -184,17 +188,6 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
-class UserInfo extends StatelessWidget {
-  final String userName;
-  final String userPhone;
-  const UserInfo({super.key, required this.userName, required this.userPhone});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Text('data');
-  }
-}
-
 Widget _buildIconTextItem(IconData icon, String text) {
   return Column(
     mainAxisSize: MainAxisSize.min,
@@ -202,14 +195,12 @@ Widget _buildIconTextItem(IconData icon, String text) {
       Icon(
         icon,
         size: 24,
-        color: const Color.fromRGBO(51, 51, 51, 1),
       ),
       const SizedBox(height: 8),
       Text(
         text,
         style: const TextStyle(
           fontSize: 14,
-          color: Color.fromRGBO(51, 51, 51, 1),
         ),
       ),
     ],
