@@ -64,5 +64,8 @@
   <string>APP需要访问您的相机以拍摄照片或视频。</string>
   <key>NSMicrophoneUsageDescription</key>
   <string>APP需要访问您的麦克风以录制音频。</string>
+
+  <key>CFBundleDevelopmentRegion</key>
+  <string>zh</string>
 </dict>
 </plist>
