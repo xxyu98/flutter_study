@@ -34,6 +34,7 @@ class AppRoute {
         GetPage(
           name: '/avatar',
           page: () => const AvatarPage(),
+          binding: ProfileBinding(),
         ),
         GetPage(
           name: '/nickname',

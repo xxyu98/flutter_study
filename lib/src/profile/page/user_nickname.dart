@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:nb_app/src/common/components/toast.dart';
 import 'package:nb_app/src/profile/controllers/profile.dart';
 
 class NicknamePage extends StatelessWidget {
@@ -50,20 +49,17 @@ class NicknamePage extends StatelessWidget {
                 if (!(formKey.currentState as FormState).validate()) {
                   return;
                 }
-                controller.changeNickname().then((value) {
-                  CustomToast.showToast(
-                    context,
-                    "修改昵称成功！",
-                    isSuccess: true,
-                  );
-                  Get.back();
-                }).catchError((e) {
-                  CustomToast.showToast(
-                    context,
-                    "修改昵称失败！",
-                    isSuccess: false,
-                  );
-                });
+                controller.changeNickname().then(
+                  (value) {
+                    Get.back();
+                    Get.snackbar('提醒', '修改成功！');
+                  },
+                ).catchError(
+                  (e) {
+                    Get.back();
+                    Get.snackbar('提醒', '修改失败！请稍后重试');
+                  },
+                );
               },
               child: const Text(
                 "保存",

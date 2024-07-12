@@ -3,6 +3,7 @@
     "autofocus",
     "autovalidate",
     "iconfont",
-    "LTRB"
+    "LTRB",
+    "unfocus"
   ]
 }

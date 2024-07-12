@@ -154,7 +154,6 @@ class ProfilePage extends StatelessWidget {
                 child: Container(
                   width: double.infinity,
                   margin: const EdgeInsets.symmetric(horizontal: 16),
-                  // height: 80,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -181,7 +180,10 @@ class ProfilePage extends StatelessWidget {
               ),
             ],
           ),
-          CellGroup(cellsData: actionList),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: CellGroup(cellsData: actionList),
+          )
         ],
       ),
     );
