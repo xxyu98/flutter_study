@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomToast {
-  static void showToast(BuildContext context, String message,
-      {bool isSuccess = true}) {
+  static void showToast(
+    BuildContext context,
+    String message, {
+    bool isSuccess = true,
+    VoidCallback? onClosed,
+  }) {
     OverlayEntry overlayEntry;
     overlayEntry = OverlayEntry(
       builder: (context) => Center(
@@ -15,8 +19,11 @@ class CustomToast {
 
     Overlay.of(context).insert(overlayEntry);
 
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       overlayEntry.remove();
+      if (onClosed != null) {
+        onClosed();
+      }
     });
   }
 
