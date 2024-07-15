@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "41081898",
+      "name": "监控",
+      "font_class": "a-bianzu15beifen",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "41081897",
+      "name": "我的",
+      "font_class": "a-bianzu12beifen",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "41081896",
+      "name": "罗盘",
+      "font_class": "a-bianzu65",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
       "icon_id": "40989122",
       "name": "离线地图",
       "font_class": "lixianditu",

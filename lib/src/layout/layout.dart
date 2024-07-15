@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nb_app/src/article/page/list.dart';
+import 'package:nb_app/src/common/components/icon_font.dart';
 import 'package:nb_app/src/compass/page/compass.dart';
 import 'package:nb_app/src/profile/page/profile.dart';
-import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 void main() async {
   runApp(const HomePage());
@@ -38,8 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
-        systemNavigationBarColor: navigationBarColor,
+      value: const SystemUiOverlayStyle(
+        systemNavigationBarColor: Colors.white,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
@@ -52,9 +53,54 @@ class _MyHomePageState extends State<MyHomePage> {
             ProfilePage()
           ],
         ),
-        bottomNavigationBar: WaterDropNavBar(
-          backgroundColor: navigationBarColor,
-          onItemSelected: (int index) {
+        bottomNavigationBar: ConvexAppBar(
+          color: const Color.fromRGBO(191, 191, 191, 1),
+          activeColor: const Color(0xFF694EEA),
+          backgroundColor: Colors.white,
+          style: TabStyle.react,
+          items: const <TabItem>[
+            TabItem(
+              title: '监控',
+              icon: Icon(
+                IconFonts.hound,
+                color: Color.fromRGBO(191, 191, 191, 1),
+                size: 22,
+              ),
+              activeIcon: Icon(
+                IconFonts.hound,
+                color: Color(0xFF694EEA),
+                size: 30,
+              ),
+            ),
+            TabItem(
+              title: '罗盘',
+              icon: Icon(
+                IconFonts.compass,
+                color: Color.fromRGBO(191, 191, 191, 1),
+                size: 22,
+              ),
+              activeIcon: Icon(
+                IconFonts.compass,
+                color: Color(0xFF694EEA),
+                size: 30,
+              ),
+            ),
+            TabItem(
+              title: '我的',
+              icon: Icon(
+                IconFonts.profile,
+                color: Color.fromRGBO(191, 191, 191, 1),
+                size: 22,
+              ),
+              activeIcon: Icon(
+                IconFonts.profile,
+                color: Color(0xFF694EEA),
+                size: 30,
+              ),
+            ),
+          ],
+          initialActiveIndex: selectedIndex,
+          onTap: (int index) {
             setState(() {
               selectedIndex = index;
             });
@@ -64,21 +110,6 @@ class _MyHomePageState extends State<MyHomePage> {
               curve: Curves.easeOutQuad,
             );
           },
-          selectedIndex: selectedIndex,
-          barItems: <BarItem>[
-            BarItem(
-              filledIcon: Icons.book,
-              outlinedIcon: Icons.book_outlined,
-            ),
-            BarItem(
-              filledIcon: Icons.compass_calibration,
-              outlinedIcon: Icons.compass_calibration_outlined,
-            ),
-            BarItem(
-              filledIcon: Icons.person,
-              outlinedIcon: Icons.person_2_outlined,
-            ),
-          ],
         ),
       ),
     );

@@ -72,4 +72,22 @@ class IconFonts {
     fontFamily: 'IconFont',
     matchTextDirection: true,
   );
+
+  static const IconData hound = IconData(
+    0xe605,
+    fontFamily: 'IconFont',
+    matchTextDirection: true,
+  );
+
+  static const IconData compass = IconData(
+    0xe607,
+    fontFamily: 'IconFont',
+    matchTextDirection: true,
+  );
+
+  static const IconData profile = IconData(
+    0xe606,
+    fontFamily: 'IconFont',
+    matchTextDirection: true,
+  );
 }
