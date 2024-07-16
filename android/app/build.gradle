@@ -42,6 +42,10 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+        }
     }
 
     buildTypes {
@@ -55,4 +59,14 @@ android {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.amap.api:3dmap:latest.integration' // 3D地图so及jar
+    implementation 'com.amap.api:location:latest.integration' // 定位功能
+    implementation 'com.amap.api:search:latest.integration' // 搜索功能
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.guava:guava:27.0.1-android'
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nb_app/src/article/page/list.dart';
 import 'package:nb_app/src/common/components/icon_font.dart';
 import 'package:nb_app/src/compass/page/compass.dart';
+import 'package:nb_app/src/monitor/page/monitor.dart';
 import 'package:nb_app/src/profile/page/profile.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
@@ -47,11 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
-          children: [
-            const ArticleListPage(),
-            const CompassPage(),
-            ProfilePage()
-          ],
+          children: [const MonitorPage(), const CompassPage(), ProfilePage()],
         ),
         bottomNavigationBar: ConvexAppBar(
           color: const Color.fromRGBO(191, 191, 191, 1),
